@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Exo&family=Lilita+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap');
+
+        h2 {
+            font-family: 'Lilita One', cursive;
+
+
+        }
+        .big{
+            font-size: 48pt;
+        }
+        .medium
+        {
+            font-size: 24pt;
+        }
+        .small
+        {
+            color: #6c7b9a;
+            font-family: 'Signika', sans-serif;
+            font-size: 6pt;
+        }
+
+        h3 {
+            font-family: 'Signika', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(45deg, {{color1}}, {{color2}});
+        }
+
+        div {
+            border-radius: 25px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 5px 5px #6c7b9a;
+            align-content: center;
+        }
+
+        .main {
+            width: 200px;
+            height: 400px;
+
+        }
+
+        .search {
+            margin-top: 300px;
+            position: center;
+            width: 200px;
+            height: 80px;
+
+        }
+
+        .map {
+            margin-left: -350px;
+            width: 400px;
+            height: 400px;
+
+        }
+
+        .info {
+            margin-left: 350px;
+            width: 400px;
+            height: 400px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="main" align="center">
+    <img src="" width="150px">
+    <h2 class="big">{{temp}}</h2>
+    <h2 class="medium">{{city}}</h2>
+    <h3 class="medium">{{sky}}</h3>
+    <h6 class="small">{{dtime}}</h6>
+</div>
+<div class="search"></div>
+<div class="map"></div>
+<div class="info"></div>
+</body>
+</html>
