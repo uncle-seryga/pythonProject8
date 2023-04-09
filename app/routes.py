@@ -2,7 +2,7 @@ import flask
 
 import weather
 from app import app
-import database
+from app import forms
 
 """
 @app.route('/')
@@ -13,10 +13,15 @@ def index():
 """
 
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET','POST'])
 def index():
-    data = weather.Weather("Kyiv")
+    form = forms.Search()
+    if form.validate_on_submit():
+        print('here')
+        data = weather.Weather(form.search.data)
+    else:
+        print('or here')
+        data = weather.Weather("Kyiv")
     return flask.render_template("weather.html",
                                  dtime=data.time, sky=data.sky.lower(), temp=f"{int(data.temp)}°C",
-                                 city=data.city, color1="yellow", color2="blue")
+                                 city=data.city, color1="yellow", color2="blue", lon=data.lon, lat=data.lat, form=form)
