@@ -7,11 +7,54 @@
         @import url('https://fonts.googleapis.com/css2?family=Exo&family=Lilita+One&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap');
 
-        h2 {
-            font-family: 'Lilita One', cursive;
+        @keyframes scaler {
+            0% { scale: 100%;
+            }
+            50% { scale: 103%;
+            }
+            75% { scale: 105%;
+            }
+            85% { scale: 108%;
+            }
+            95% { scale: 109%;
+            }
+            100% { scale: 110%;
 
+            }
 
         }
+
+        h2 {
+            font-family: 'Lilita One', cursive;
+        }
+
+        h3 {
+            font-family: 'Signika', sans-serif;
+        }
+
+        body {
+            background: lightblue;
+        }
+
+        div {
+            border-radius: 25px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 5px 5px #6c7b9a;
+            align-content: center;
+        }
+
+        div:hover {
+            scale: 105%;
+            transform: rotate(3deg) translate(-50%, -50%);
+            animation: scaler;
+            animation-duration: 0.2s;
+            animation-delay: 0.3s;
+        }
+
 
         .big {
             font-size: 48pt;
@@ -25,26 +68,6 @@
             color: #6c7b9a;
             font-family: 'Signika', sans-serif;
             font-size: 6pt;
-        }
-
-        h3 {
-            font-family: 'Signika', sans-serif;
-        }
-
-        body {
-
-            background: lightblue;
-        }
-
-        div {
-            border-radius: 25px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            box-shadow: 5px 5px #6c7b9a;
-            align-content: center;
         }
 
         .main {
@@ -79,6 +102,12 @@
             height: 400px;
 
         }
+
+        .search_form {
+            border: none;
+            border-bottom: 2px solid #6c7b9a;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -91,9 +120,9 @@
     <h6 class="small">{{dtime}}</h6>
 </div>
 <div class="search">
-    {{form.hidden_tag()}}
-    <form>
-        <p style="margin-top: 30px">{{form.search()}}</p>
+    <form action="/index" method="post">
+        {{form.hidden_tag()}}
+        <p style="margin-top: 30px">{{form.search(class="search_form")}}</p>
     </form>
 </div>
 <div class="map">

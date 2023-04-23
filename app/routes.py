@@ -13,15 +13,14 @@ def index():
 """
 
 
-@app.route('/', methods=['GET','POST'])
+@app.route("/")
+@app.route('/index', methods=['GET','POST'])
 def index():
     form = forms.Search()
-    if form.validate_on_submit():
-        print('here')
+    if form.is_submitted():
         data = weather.Weather(form.search.data)
     else:
-        print('or here')
-        data = weather.Weather("Kyiv")
+        data = weather.Weather(form.search.data)
     return flask.render_template("weather.html",
                                  dtime=data.time, sky=data.sky.lower(), temp=f"{int(data.temp)}°C",
                                  city=data.city, color1="yellow", color2="blue", lon=data.lon, lat=data.lat, form=form)
