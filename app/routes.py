@@ -21,6 +21,6 @@ def index():
         data = weather.Weather(form.search.data)
     else:
         data = weather.Weather(form.search.data)
-    return flask.render_template("weather.html",
+    return flask.render_template("weather_new.html",
                                  dtime=data.time, sky=data.sky.lower(), temp=f"{int(data.temp)}°C",
                                  city=data.city, color1="yellow", color2="blue", lon=data.lon, lat=data.lat, form=form)

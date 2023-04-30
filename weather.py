@@ -1,10 +1,12 @@
 import requests
 import datetime
-
+import screeninfo
 
 class Weather:
     def __init__(self, city_name:str):
-
+        self.h = screeninfo.get_monitors()[0].height
+        self.w = screeninfo.get_monitors()[0].width
+        print(self.h)
         __API_key = "e90fab7014064d2c88795d9fd95afa6f"
         url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={__API_key}&units=metric"
         self.data = eval(requests.get(url).text)

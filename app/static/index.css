@@ -1,0 +1,9 @@
+body{
+    background: rgb(255,247,178);
+    background: radial-gradient(circle, rgba(0,0,0,1) 80%, rgba(255,255,255,1) 100%);
+}
+.background_map {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
