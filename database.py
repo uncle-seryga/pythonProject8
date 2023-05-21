@@ -3,7 +3,7 @@ import sqlite3
 
 class DB:
     def __init__(self):
-        self.__conn = sqlite3.connect("app/static/db.db", check_same_thread=False)
+        self.__conn = sqlite3.connect("app_old/static/db.db", check_same_thread=False)
         self.__cursor = self.__conn.cursor()
         self.__cursor.execute("""create table if not exists currency (code,name,rateBuy,rateSell,timeLastUpdate)""")
 
@@ -18,7 +18,7 @@ class DB:
                                           (x['rateCross'], x['rateCross'], x['date']))
 
     def get_currency_name(self,iso_name):
-            iso = eval(open('iso4217.json').read())
+            iso = eval(open('currency/iso4217.json').read())
             for x in iso:
                 if int(x["number"]) == iso_name:
                     return x["name"]

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+
+        .list_block {
+            font-family: 'Rubik', sans-serif;
+
+        }
+
+        .dim {
+            color: rgba(108, 123, 154, .5);
+        }
+
+        [type=checkbox] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        [type=checkbox] + img {
+            cursor: pointer;
+        }
+
+        [type=checkbox]:checked + img {
+            scale: 110%;
+            z-index: 2000;
+        }
+
+        ol, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .carousel-viewport {
+            position: relative;
+            display: flex;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+
+        }
+
+        .h3_left_down {
+            color: aliceblue;
+            text-shadow: 4px 3px 9px rgba(0, 0, 0, 0.82);
+            position: absolute;
+            left: 5px;
+            bottom: 5px;
+            z-index: 2;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+<div>
+    <ol class="carousel-viewport">
+        {%for x in currency_list%}
+        <li class="list_block">
+            <div>
+                <h3 class="h3_left_down">{{ x }}</h3>
+                <!--<p class="dim">{{currency_list[x][1]}}</p>-->
+                <label>
+                    <input type="checkbox" value={{x}}>
+                    <img src="https://flagsapi.com/{{currency_list[x][2]}}/flat/64.png" width="100px">
+                </label>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+</div>
+</body>
+</html>

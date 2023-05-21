@@ -1,5 +1,6 @@
 import flask
 
+import currency
 import weather
 from app import app
 from app import forms
@@ -14,13 +15,17 @@ def index():
 
 
 @app.route("/")
-@app.route('/index', methods=['GET','POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
-    form = forms.Search()
-    if form.is_submitted():
-        data = weather.Weather(form.search.data)
-    else:
-        data = weather.Weather(form.search.data)
-    return flask.render_template("weather_new.html",
-                                 dtime=data.time, sky=data.sky.lower(), temp=f"{int(data.temp)}°C",
-                                 city=data.city, color1="yellow", color2="blue", lon=data.lon, lat=data.lat, form=form)
+    list_of_currency_names = [x for x in currency.set_currency()]
+    list_of_currency_names_full = currency.set_currency()
+    return flask.render_template("currency_main.html", currency_list=list_of_currency_names_full)
+    """ form = forms.Search()
+     if form.is_submitted():
+         data = weather.Weather(form.search.data)
+     else:
+         data = weather.Weather(form.search.data)
+     return flask.render_template("weather_new.html",
+                                  dtime=data.time, sky=data.sky.lower(), temp=f"{int(data.temp)}°C",
+                                  city=data.city, color1="yellow", color2="blue", lon=data.lon, lat=data.lat, form=form)
+ """
