@@ -46,7 +46,6 @@ def set_currency():
                                     results.update({y["code"]: [x['rateBuy'], y['name'] ,z['cca2']]})
                                     exceptions.append(y['code'])
                                     break
-    print(results)
     return results
 
 # print(set_currency())

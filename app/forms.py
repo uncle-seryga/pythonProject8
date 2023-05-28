@@ -9,3 +9,4 @@ class Search(FlaskForm):
 
 class Currency(FlaskForm):
     search = StringField(validators=[DataRequired()], render_kw={'placeholder': "Amount"})
+    submit = SubmitField()
