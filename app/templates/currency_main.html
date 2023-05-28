@@ -55,13 +55,24 @@
             bottom: 5px;
             z-index: 2;
         }
+
+        .input_amount {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            margin-top: 50vh;
+        }
+
+        .high_af {
+            height: 100vh;
+        }
     </style>
     <script>
 
     </script>
 </head>
 <body>
-<div>
+<div class="high_af">
     <ol class="carousel-viewport">
         {%for x in currency_list%}
         <li class="list_block">
@@ -76,6 +87,7 @@
         </li>
         {% endfor %}
     </ol>
+        <p class="input_amount">{{input_amount}}</p>
 </div>
 </body>
 </html>
