@@ -26,6 +26,6 @@ def index():
         print(a, b, form.search.data)
         result = currency.convert(a, b, form.search.data)
         return flask.render_template("currency_main.html", currency_list=list_of_currency_names_full,
-                                     input_amount=form.search, result=0, form=form)
+                                     input_amount=form.search, result=result, form=form)
     return flask.render_template("currency_main.html", currency_list=list_of_currency_names_full,
-                                 input_amount=form.search, result=0, form=form)
+                                 input_amount=form.search, result='', form=form)

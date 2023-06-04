@@ -79,4 +79,5 @@ def convert(cur1, cur2, amount):
                 cur2_price = x['rateBuy']
     else:
         cur2_price = 1
-    return (cur2_price / cur1_price * amount)
+    print(type(cur2_price), type(cur1_price))
+    return str(int((cur2_price / cur1_price)) * int(amount))
