@@ -55,29 +55,37 @@ def convert(cur1, cur2, amount):
     for x in iso:
         if x["code"] == cur1:
             cur1_code = int(x["number"])
+            break
     else:
         cur1_code = 980
     for x in iso:
         if x["code"] == cur2:
             cur2_code = int(x["number"])
+            break
     else:
         cur2_code = 980
     data = eval(open('currency/data.json', 'r').read())
+
     for x in data:
         if x["currencyCodeA"] == cur1_code:
             if x['rateBuy'] == 0:
+                print("here")
                 cur1_price = x['rateCross']
+                break
             else:
                 cur1_price = x['rateBuy']
+                break
     else:
         cur1_price = 1
     for x in data:
         if x["currencyCodeA"] == cur2_code:
             if x['rateBuy'] == 0:
                 cur2_price = x['rateCross']
+                break
             else:
                 cur2_price = x['rateBuy']
+                break
     else:
         cur2_price = 1
-    print(type(cur2_price), type(cur1_price))
-    return str(int((cur2_price / cur1_price)) * int(amount))
+    print(cur2_price, cur1_price)
+    return str(round(float((cur1_price / cur2_price)) * int(amount),2))
