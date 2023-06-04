@@ -23,8 +23,8 @@ def index():
     if form.is_submitted():
         a = flask.request.form.get("currencies-list-1")
         b = flask.request.form.get("currencies-list-2")
-        print(form.submit.data)  # todo return False, input data expected -> research
-        result = currency.convert(a, b, form.submit.data)
+        print(a, b, form.search.data)
+        result = currency.convert(a, b, form.search.data)
         return flask.render_template("currency_main.html", currency_list=list_of_currency_names_full,
                                      input_amount=form.search, result=0, form=form)
     return flask.render_template("currency_main.html", currency_list=list_of_currency_names_full,
