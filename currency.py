@@ -88,4 +88,4 @@ def convert(cur1, cur2, amount):
     else:
         cur2_price = 1
     print(cur2_price, cur1_price)
-    return str(round(float((cur1_price / cur2_price)) * int(amount),2))
+    return str(round(float((cur1_price / cur2_price)) * int(amount), 2))
